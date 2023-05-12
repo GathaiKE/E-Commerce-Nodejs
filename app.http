@@ -1,0 +1,116 @@
+# users methods
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "username":"Reiss Nelson",
+    "email":"weisshhghf@customer.com",
+    "password":"qrU)rDR@W2mcnfH&"
+}
+
+###
+
+GET http://localhost:5000/users
+
+###
+
+GET http://localhost:5000/users/21fb7385-f601-4a70-bbae-b5d0c8132df3
+####
+
+GET http://localhost:5000/users/email/malcomx@customer.com
+
+###
+PUT  http://localhost:5000/users/2e9a9588-0045-4aa5-aac2-1400e84b5049
+Content-Type: application/json
+
+{
+    "username":"Martin Odegaard Himself",
+    "email":"martcap@customer.com"
+}
+
+###
+DELETE http://localhost:5000/users/508ebb1e-37a3-4d05-b4c8-afb25d2ba390
+
+###
+POST http://localhost:5000/users/login
+Content-Type: application/json
+
+{
+    "email":"reiss@customer.com",
+    "password":"piggietailman"
+}
+
+
+# users methods
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "username":"Kelvin Ngeiywa",
+    "email":"kelvin@customer.com",
+    "password":"kelvin1234"
+}
+
+###
+
+GET http://localhost:5000/users
+
+###
+
+GET http://localhost:5000/users/996a62f0-d695-471b-b4a6-6ae4f6c6170e
+
+###
+PUT  http://localhost:5000/users/996a62f0-d695-471b-b4a6-6ae4f6c6170e
+Content-Type: application/json
+
+{
+    "username":"Kelvin Himself",
+    "email":"kelvin@customer.com"
+}
+
+###
+DELETE http://localhost:5000/users/82bbfa04-0da0-426b-b8c6-fe56f51bff71
+
+
+###
+
+# products methods
+
+###
+
+#get all products
+GET http://localhost:5000/products
+
+###
+
+#add new product
+POST http://localhost:5000/products
+Content-Type: application/json
+
+{
+    "name":"sprite",
+    "description":"soft drink",
+    "images":"gfyfjgjkgsdf",
+    "price":"60"
+}
+
+###
+
+#get one product by id
+GET http://localhost:5000/products/95bc55dc-3260-4ea2-9010-2bbc9c615a3f
+###
+
+#update one product
+PUT http://localhost:5000/products/95bc55dc-3260-4ea2-9010-2bbc9c615a3f
+Content-Type: application/json
+
+{
+    "name":"fresha maziwa",
+    "description":"milk",
+    "images":"gquabfksdf",
+    "price":"63"
+}
+###
+
+#delete one product
+DELETE http://localhost:5000/products/95bc55dc-3260-4ea2-9010-2bbc9c615a3f
