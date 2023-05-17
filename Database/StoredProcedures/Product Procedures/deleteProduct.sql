@@ -1,7 +1,0 @@
-CREATE OR ALTER PROCEDURE deleteProduct(
-	@id VARCHAR (100)     
-)
-AS 
- BEGIN
-  DELETE FROM PRODUCTS WHERE id=@id
- END
