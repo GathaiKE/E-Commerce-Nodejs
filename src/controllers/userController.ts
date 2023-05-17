@@ -62,7 +62,6 @@ export const getUserById=async(req:ExtendedRequest,res:Response)=>{
     }
 }
 
-
 export const getUserByEmail=async(req:ExtendedRequest,res:Response)=>{
     try {
         const {email} = req.params
@@ -116,17 +115,14 @@ export const deleteUser=async(req:ExtendedRequest,res:Response)=>{
     }
 }
 
-export const registerUser = async(req:Request,res:Response)=>{
-
-}
 
 export const userLogin= async (req:Request, res:Response)=>{
     try {
         const{email,password}= req.body
-        const pool=mssql.connect(sqlConfig)
-        let user:User[] = await pool.request()
-        .input('email',email)
-        .execute('getUserByEmail')).recordset[0]
+        const pool=await mssql.connect(sqlConfig)
+        let user:User[] = await (await pool.request()
+            .input('email', email)
+            .execute('getUserByEmail')).recordset
         if(!user[0]){
             return res.status(404).json({message:"User not Found"})
             }
@@ -147,3 +143,5 @@ export const userLogin= async (req:Request, res:Response)=>{
             return res.status(500).json(error.message)
     }
 }
+
+// admin Sarah Williams password: Pa$$w0rd!

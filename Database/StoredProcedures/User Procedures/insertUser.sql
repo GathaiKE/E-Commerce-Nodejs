@@ -8,11 +8,8 @@ CREATE OR ALTER PROCEDURE insertUser(
 AS
 BEGIN
 INSERT INTO USERDB(id,username,email,role,password)
-VALUES(@id,@username,@email,@password)
+VALUES(@id,@username,@email,@role,@password)
 END
-
-
-select * from dbo.userdb
 
 
 

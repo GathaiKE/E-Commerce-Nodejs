@@ -2,27 +2,8 @@ import {Request, Response} from "express";
 import mssql from 'mssql'
 import {sqlConfig} from "../config"
 import {v4 as uid} from "uuid"
+import { ExtendedRequest,User,ProductRequest,Product } from "../interfaces/interfaces";
 
-interface ProductRequest extends Request{
-    body:{
-        name:string
-        description:string
-        images:string
-        price:number
-
-    }
-    params:{
-        id:string
-    }
-}
-
-interface Product{
-    id:string
-    name:string
-    description:string
-    images: string
-    price:number
-}
 
 //add a new product
 export const addProduct=async (req:ProductRequest, res:Response)=>{
