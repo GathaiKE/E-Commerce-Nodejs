@@ -1,5 +1,5 @@
 use [E-Commerce]
-go
+
 CREATE OR ALTER PROCEDURE insertProduct(
      @product_id VARCHAR (100),
      @product_name VARCHAR(100),
@@ -24,9 +24,7 @@ VALUES(
      @product_price
 )
 END
-exec insertProduct @product_id ='11',
-     @product_name='mandazi'
-	 ,
-     @descriptions='mandaazi moto',
-	 @images='link',
-     @product_price=122
+
+exec insertProduct 1,'BMW','SUV','http://hegegyyef.com','9000'
+
+

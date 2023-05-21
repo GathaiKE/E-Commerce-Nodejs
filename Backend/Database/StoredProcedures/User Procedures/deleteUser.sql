@@ -3,5 +3,5 @@ CREATE OR ALTER PROCEDURE deleteUser(
   )
 AS 
 BEGIN
-    DELETE FROM USERDB WHERE user_id=@user_id
+    DELETE FROM users WHERE user_id=@user_id
 END

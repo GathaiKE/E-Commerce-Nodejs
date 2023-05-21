@@ -6,7 +6,7 @@ CREATE OR ALTER PROCEDURE updateUser(
 AS
 BEGIN
 
-UPDATE USERDB SET username= @username, email= @email
+UPDATE users SET username= @username, email= @email
 WHERE user_id= @user_id 
 
 END

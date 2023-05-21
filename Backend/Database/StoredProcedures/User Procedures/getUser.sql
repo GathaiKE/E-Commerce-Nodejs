@@ -3,5 +3,5 @@ CREATE OR ALTER PROCEDURE getUser(
 )
 AS 
 BEGIN
-SELECT * FROM USERDB WHERE user_id=@user_id
+SELECT * FROM users WHERE user_id=@user_id
 END

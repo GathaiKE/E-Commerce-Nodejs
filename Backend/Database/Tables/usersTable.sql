@@ -1,7 +1,7 @@
 USE [E-Commerce]
 
 
-CREATE TABLE USERDB (
+CREATE TABLE users (
     user_id VARCHAR (100) NOT NULL PRIMARY KEY,
     username VARCHAR(200),
     email VARCHAR(50) UNIQUE,
@@ -10,6 +10,6 @@ CREATE TABLE USERDB (
     password VARCHAR(200)
 );
 
-select * from USERDB
+select * from users
 
 drop table USERDB

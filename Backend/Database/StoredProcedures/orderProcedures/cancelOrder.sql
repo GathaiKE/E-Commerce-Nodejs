@@ -1,7 +1,8 @@
 use [E-Commerce]
-
-CREATE OR ALTER PROCEDURE deleteOrder(@order_id INT)
+GO
+CREATE OR ALTER PROCEDURE cancelOrder(@order_id INT)
 AS
 BEGIN
-	DELETE FROM orders WHERE order_id=@order_id
+UPDATE cart
+	SET order_status = 'Cancelled' WHERE order_id=@order_id
 END
