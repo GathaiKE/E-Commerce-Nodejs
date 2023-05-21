@@ -66,7 +66,6 @@ export const getUserById=async(req:ExtendedRequest,res:Response)=>{
     }
 }
 
-
 export const getUserByEmail=async(req:ExtendedRequest,res:Response)=>{
     try {
         const email = req.data.email
@@ -125,6 +124,7 @@ export const deleteUser=async(req:ExtendedRequest,res:Response)=>{
     }
 }
 
+<<<<<<< HEAD:Backend/src/controllers/userController.ts
 export const userLogin= async (req:ExtendedRequest, res:Response)=>{
     try {
         const{email,password}= req.body
@@ -132,6 +132,31 @@ export const userLogin= async (req:ExtendedRequest, res:Response)=>{
         let user:User[] = (await (await pool.request())
         .input('email',email)
         .execute('getUserByEmail')).recordset
+=======
+
+export const userLogin= async (req:Request, res:Response)=>{
+    try {
+        const{email,password}= req.body
+        const pool=await mssql.connect(sqlConfig)
+        let user:User[] = await (await pool.request()
+            .input('email', email)
+            .execute('getUserByEmail')).recordset
+        if(!user[0]){
+            return res.status(404).json({message:"User not Found"})
+            }
+            let validPassword = await bcrypt.compare(password,user[0].password)
+        
+            if(!validPassword){
+            return res.status(404).json({message:"User not Found"})
+            }
+        
+            const payload= user.map(userr=>{
+            const {password, email,username,...rest}=userr
+            return rest
+            })
+            const token = jwt.sign(payload[0], process.env.SECRET_KEY as string)
+            res.status(200).json(token)
+>>>>>>> aace9a092bf4def2c2164b836b890dd2c4fd080e:src/controllers/userController.ts
 
         if(!user[0]){
             return res.status(404).json({message:"User does not exist!"})  
@@ -154,6 +179,7 @@ export const userLogin= async (req:ExtendedRequest, res:Response)=>{
     }
 }
 
+<<<<<<< HEAD:Backend/src/controllers/userController.ts
 // export const adminLogin= async (req:ExtendedRequest, res:Response)=>{
 //     try {
 //         const{email,password}= req.body
@@ -186,3 +212,6 @@ export const userLogin= async (req:ExtendedRequest, res:Response)=>{
 //             return res.status(500).json(error.message)
 //     }
 // }
+=======
+// admin Sarah Williams password: Pa$$w0rd!
+>>>>>>> aace9a092bf4def2c2164b836b890dd2c4fd080e:src/controllers/userController.ts
