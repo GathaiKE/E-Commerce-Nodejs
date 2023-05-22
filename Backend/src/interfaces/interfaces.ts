@@ -32,6 +32,7 @@ export interface User{
 
 export interface Cart{
     item_id:number
+    cart_id:string
     user_id:string
     product_id:string
     product_name:string
@@ -43,7 +44,7 @@ export interface Cart{
 export interface CartRequest extends Request{
     data: DecodedData
     body:{
-        item_id:number
+        item_id:string
         product_id:string
         user_id:string
         product_name:string
@@ -77,8 +78,8 @@ export interface Product{
 }
 
 export interface DecodedData{
-    id: string;
-    name: string;
+    user_id: string;
+    username: string;
     email: string;
 }
 

@@ -2,11 +2,7 @@ import {Request, Response} from "express";
 import mssql from 'mssql'
 import {sqlConfig} from "../config"
 import {v4 as uid} from "uuid"
-<<<<<<< HEAD:Backend/src/controllers/productsController.ts
-import { Product,ProductRequest } from "../interfaces/interfaces";
-=======
 import { ExtendedRequest,User,ProductRequest,Product } from "../interfaces/interfaces";
->>>>>>> aace9a092bf4def2c2164b836b890dd2c4fd080e:src/controllers/productsController.ts
 
 
 //add a new product

@@ -54,7 +54,7 @@ export const getUserById=async(req:ExtendedRequest,res:Response)=>{
         const pool=await mssql.connect(sqlConfig)
         if(req.data){
         let user:User[]=(await(await pool.request())
-        .input('user_id',req.data.id).execute('getUser')).recordset
+        .input('user_id',req.data.user_id).execute('getUser')).recordset
         if(!user[0]){
             return res.status(404).json({message:"User not found!"})
         }
@@ -86,7 +86,7 @@ export const getUserByEmail=async(req:ExtendedRequest,res:Response)=>{
 export const updateUser=async(req:ExtendedRequest,res:Response)=>{
     try {
         const {username,email}=req.body
-        const user_id=req.data.id
+        const user_id=req.data.user_id
         const pool=await mssql.connect(sqlConfig)
         let user:User[]=(await(await pool.request())
         .input('user_id',user_id).execute('getUser')).recordset
@@ -107,7 +107,7 @@ export const updateUser=async(req:ExtendedRequest,res:Response)=>{
 
 export const deleteUser=async(req:ExtendedRequest,res:Response)=>{
     try {
-        const user_id =req.data.id
+        const user_id =req.data.user_id
 
         const pool= await mssql.connect(sqlConfig)
         let user:User[] =(await(await pool.request())
@@ -116,7 +116,7 @@ export const deleteUser=async(req:ExtendedRequest,res:Response)=>{
             return res.status(404).json({message:"User not found!"})
         }
 
-        await pool.request().execute('deleteUser')
+        await pool.request().input('user_id',user_id).execute('deleteUser')
             
         return res.status(200).json({message:"User deleted successfully!"})
     } catch (error:any) {
@@ -124,7 +124,6 @@ export const deleteUser=async(req:ExtendedRequest,res:Response)=>{
     }
 }
 
-<<<<<<< HEAD:Backend/src/controllers/userController.ts
 export const userLogin= async (req:ExtendedRequest, res:Response)=>{
     try {
         const{email,password}= req.body
@@ -132,31 +131,6 @@ export const userLogin= async (req:ExtendedRequest, res:Response)=>{
         let user:User[] = (await (await pool.request())
         .input('email',email)
         .execute('getUserByEmail')).recordset
-=======
-
-export const userLogin= async (req:Request, res:Response)=>{
-    try {
-        const{email,password}= req.body
-        const pool=await mssql.connect(sqlConfig)
-        let user:User[] = await (await pool.request()
-            .input('email', email)
-            .execute('getUserByEmail')).recordset
-        if(!user[0]){
-            return res.status(404).json({message:"User not Found"})
-            }
-            let validPassword = await bcrypt.compare(password,user[0].password)
-        
-            if(!validPassword){
-            return res.status(404).json({message:"User not Found"})
-            }
-        
-            const payload= user.map(userr=>{
-            const {password, email,username,...rest}=userr
-            return rest
-            })
-            const token = jwt.sign(payload[0], process.env.SECRET_KEY as string)
-            res.status(200).json(token)
->>>>>>> aace9a092bf4def2c2164b836b890dd2c4fd080e:src/controllers/userController.ts
 
         if(!user[0]){
             return res.status(404).json({message:"User does not exist!"})  
@@ -171,47 +145,10 @@ export const userLogin= async (req:Request, res:Response)=>{
             const {password, email_sent,role,...rest}=usr
             return rest
         })
-        const token = jwt.sign(payload[0], process.env.SECRET_KEY as string,{expiresIn:"360000s"})
+        const token = jwt.sign(payload[0], process.env.SECRET_KEY as string,{expiresIn:"3600s"})
         // res.status(200).json(token)
         return res.json({mesage:"Login Successfull!",token})
     } catch (error:any) {
             return res.status(500).json(error.message)
     }
 }
-
-<<<<<<< HEAD:Backend/src/controllers/userController.ts
-// export const adminLogin= async (req:ExtendedRequest, res:Response)=>{
-//     try {
-//         const{email,password}= req.body
-//         const pool = await mssql.connect(sqlConfig)
-//         let user:User[] = (await (await pool.request())
-//         .input('email',email)
-//         .execute('getUserByEmail')).recordset
-
-//         if(!user[0]){
-//             return res.status(404).json({message:"User does not exist!"})  
-//         } else if(user[0].role !== 'admin'){
-//             return res.status(404).json({message:"User is not an Admin!"})  
-
-//         }
-        
-//         let correctPassword = await bcrypt.compare(password,user[0].password)
-//         if(!correctPassword){
-//             return res.status(404).json({message:"User does not exist!"})
-//         }
-
-//         const adminLoad= user.map(adm=>{
-//             const {password, email_sent,role,...rest}=adm
-//             return rest
-//         })
-//         const admtoken = jwt.sign(adminLoad[0], process.env.SECRET_KEY as string)
-//         res.status(200).json(admtoken)
-
-//         return res.json({mesage:"Login Successfull!",admtoken})
-//     } catch (error:any) {
-//             return res.status(500).json(error.message)
-//     }
-// }
-=======
-// admin Sarah Williams password: Pa$$w0rd!
->>>>>>> aace9a092bf4def2c2164b836b890dd2c4fd080e:src/controllers/userController.ts
