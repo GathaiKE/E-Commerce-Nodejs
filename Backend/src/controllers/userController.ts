@@ -8,7 +8,7 @@ import dotenv from 'dotenv'
 import jwt from 'jsonwebtoken'
 dotenv.config({path:path.resolve(__dirname, '../../.env')})
 import {ExtendedRequest,User} from "../interfaces/interfaces"
-import { userValidatorSchema } from "../helpers/userValidation";
+import { userValidatorSchema,resetPasswordSchema } from "../helpers/userValidation";
 
 
 
@@ -158,3 +158,39 @@ export const userLogin= async (req:ExtendedRequest, res:Response)=>{
             return res.status(500).json(error.message)
     }
 }
+
+// export const resetPassword=async (req:Request<{email:string,newPassword:string}>, res:Response)=>{
+//     try {
+//         const{email,password}= req.body
+//         const {error} = resetPasswordSchema.validate(req.body)
+//         if(error){
+//             return res.status(404).json({message:"Invalid"})
+//         }
+
+
+//     } catch (error) {
+        
+//     }
+// }
+export const resetPassword = async (req: ExtendedRequest, res: Response) => {
+  try {
+    const { password } = req.body;
+    const {user_id} = req.params
+    let hashedPassword = await bcrypt.hash(password, 10);
+    const pool = await mssql.connect(sqlConfig);
+    let user: User = (await (await pool.request())
+    .input("user_id", user_id)
+    .execute("getUserById")).recordset[0];
+    if (!user) {
+      return res.status(404).json({ message: "User Not Found" });
+    }
+    await pool.request()
+    .input("user_id", user_id)
+      .input("password", hashedPassword)
+      .execute("resetPassword");
+    return res.status(200).json({ message: "User Password Updated" });
+  } 
+    catch (error: any) {
+        return res.status(500).json(error.message);
+  }
+};

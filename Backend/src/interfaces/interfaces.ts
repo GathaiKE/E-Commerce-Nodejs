@@ -28,6 +28,7 @@ export interface User{
     email_sent:string
     role:string
     password:string
+    resetEmailSent:number
 }
 
 export interface Cart{
