@@ -1,0 +1,2589 @@
+{
+	"info": {
+		"_postman_id": "c1b857b2-c1c7-4989-b312-f8139709c18c",
+		"name": "E_Commerce API",
+		"description": "_This is an E-commerce API that allows users and an authorized admin to effectively interract with a business website._",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27543841"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Default User\",\r\n    \"email\":\"defaultuser@customer.com\",\r\n    \"role\":\"user\",\r\n    \"password\":\"@AeJ^J0j45P@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"Default User\",\r\n    \"email\":\"defaultuser@customer.com\",\r\n    \"role\":\"user\",\r\n    \"password\":\"@AeJ^J0j45P@\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/users/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "38"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"26-wYK+QsaEn7IR8+WV89u605fnx5c\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 12:02:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User added successfully!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Log in",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "header",
+									"value": "{\"token\"}",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "secret",
+									"value": "specksofbluepurpleindulged",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "payload",
+									"value": "{}",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"zaynsuper@customer.com\",\r\n    \"password\":\"&AeJ^J0j45P&\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"login"
+							]
+						},
+						"description": "Log in"
+					},
+					"response": [
+						{
+							"name": "log in result",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"defaultuser@customer.com\",\r\n    \"password\":\"@AeJ^J0j45P@\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/users/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "317"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"13d-GZrz8kEdYFIKmgTvUaJ87Ka4ql8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 11:48:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"mesage\": \"Login Successfull!\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODQ3ZWJjYjctMjI1Zi00YTRjLWI4ZmItYjNiZTdmN2NmNThjIiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1NjEzNSwiZXhwIjoxNjg0NzU5NzM1fQ.-fVGife-stpEU1M7_S9lMyTxBD_jUVUmLzuZUMOxo9g\"\n}"
+						}
+					]
+				},
+				{
+					"name": "getAllUsers",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "secret",
+									"value": "specksofbluepurpleindulged",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "header",
+									"value": "{\"token\"}",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": false,
+									"type": "boolean"
+								},
+								{
+									"key": "payload",
+									"value": "{}",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDYzMjQ3MiwiZXhwIjoxNjg0OTkyNDcyfQ.lvJ6iyW4P51vQbJViqgSKlg7TkOUCJfOuh_c1Q1-2OY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/users/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"getAll"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getAllUsers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDYzMjQ3MiwiZXhwIjoxNjg0OTkyNDcyfQ.lvJ6iyW4P51vQbJViqgSKlg7TkOUCJfOuh_c1Q1-2OY",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/users/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users",
+										"getAll"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2790"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ae6-4D/L6UWpfHekdThcCfoF2CNcOLY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 11:46:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"user_id\": \"0dcb2db6-1355-48ea-a642-cbf9db48d7dc\",\n        \"username\": \"Default User\",\n        \"email\": \"defaultuser1@customer.com\",\n        \"email_sent\": 0,\n        \"role\": \"user\",\n        \"password\": \"$2b$07$W9tG8YcK0BTbPrAasqUNbOK9XHIxSUgGgHfCEXRXcPIcj726SuRgi\"\n    },\n    {\n        \"user_id\": \"14708081-d82c-4d9e-9a12-50534701acc7\",\n        \"username\": \"Default Admin\",\n        \"email\": \"admin@customer.com\",\n        \"email_sent\": 0,\n        \"role\": \"admin\",\n        \"password\": \"$2b$07$.ko1PB5YRrPiI1s5IwCLy.PQmSaYHgk03.sz7QznOgWZSVTvoSJ.y\"\n    },\n    {\n        \"user_id\": \"15bbe9a4-7484-4b2a-9e68-043f7da5a35f\",\n        \"username\": \"Zayn Malick\",\n        \"email\": \"zaynsuper@customer.com\",\n        \"email_sent\": 0,\n        \"role\": \"admin\",\n        \"password\": \"$2b$07$kzjeRbr/1zVcBCGgQP71NO2caUw/VhSd8whfWMnka5o40iR/vpeSi\"\n    },\n    {\n        \"user_id\": \"2b0e28fe-f43c-46af-909e-b18becd159ea\",\n        \"username\": \"Freshly Mwamburi\",\n        \"email\": \"stellaisgone@customer.com\",\n        \"email_sent\": 0,\n        \"role\": \"user\",\n        \"password\": \"$2b$07$ao1oIqdrkv7BNZivSaWAg.8.UR1FsK2Umpli66WvxDKKo6PelJuUS\"\n    },\n    {\n        \"user_id\": \"40b9262c-6e09-4539-9217-030b60d53e0c\",\n        \"username\": \"Kelvin Ngeiywa\",\n        \"email\": \"kelvinngeiywa@customer.com\",\n        \"email_sent\": 0,\n        \"role\": \"user\",\n        \"password\": \"$2b$07$P7pr6g3rqzJvbr5p5t1FoOAa24cfT4V5kcaogMuLIG0Fy8nHkLTQ2\"\n    },\n    {\n        \"user_id\": \"6b2ccb4c-463a-4633-af98-a82bcbcd0fbd\",\n        \"username\": \"kelvin Otieno\",\n        \"email\": \"kelvinotis@customer.com\",\n        \"email_sent\": 0,\n        \"role\": \"user\",\n        \"password\": \"$2b$07$ObvhG2UJWRlLDX4NgUcdLOibeljC2ubU0J73F.m2BYFNjBlfsl0PW\"\n    },\n    {\n        \"user_id\": \"83ec66cc-defd-44d3-8577-c92c979beec5\",\n        \"username\": \"Terry Waiswa\",\n        \"email\": \"waiswaterryanne@customer.com\",\n        \"email_sent\": 0,\n        \"role\": \"user\",\n        \"password\": \"$2b$07$BkYazkV6rGP4szNxrYBc1OvoOtF9a8YFkJCgGufC8yC6CwaO1vnHK\"\n    },\n    {\n        \"user_id\": \"847ebcb7-225f-4a4c-b8fb-b3be7f7cf58c\",\n        \"username\": \"Default User\",\n        \"email\": \"defaultuser@customer.com\",\n        \"email_sent\": 0,\n        \"role\": \"user\",\n        \"password\": \"$2b$07$hX5Pzmv6CmdJb0T3P/lt2eTTbLLd.WIDpxdjOBl3NpTJ4NfjJ14B2\"\n    },\n    {\n        \"user_id\": \"9b0f2b2c-3d0d-446c-b5c0-850ca5ac7ef5\",\n        \"username\": \"Elias Ndegwa\",\n        \"email\": \"eliasndegwa@customer.com\",\n        \"email_sent\": null,\n        \"role\": \"user\",\n        \"password\": \"$2b$07$kNxmnXtZi/4W33xGWJeSN.LIufiSe5oC8KzhC9wuUcxHhwiv5aw4u\"\n    },\n    {\n        \"user_id\": \"add894cf-4a85-41e1-bb61-38419dbb0c70\",\n        \"username\": \"Austine Amedi\",\n        \"email\": \"amedi@customer.com\",\n        \"email_sent\": 0,\n        \"role\": \"user\",\n        \"password\": \"$2b$07$gQHNlIc/06u8PGFc1umrG.j/5v/g82XQ42Ex7MMAk/XTa.WOBdX5O\"\n    },\n    {\n        \"user_id\": \"c2229e0a-828e-4f06-b9f1-de8e0bbde0bd\",\n        \"username\": \"Default User\",\n        \"email\": \"sha@customer.com\",\n        \"email_sent\": 0,\n        \"role\": \"user\",\n        \"password\": \"$2b$07$Z/NfziNgQDsVBu5DBhA2C.fAvUIwYBuCrA40bYQ3Krt9O99R5pPRa\"\n    },\n    {\n        \"user_id\": \"c7da2de2-9889-477f-aa14-a1107ac7d86f\",\n        \"username\": \"Brian gathai\",\n        \"email\": \"briangathai47@customer.com\",\n        \"email_sent\": null,\n        \"role\": \"user\",\n        \"password\": \"$2b$07$Zw37TJng9d0tSEfc4.rc1e/m/39hKU8uz.wkYnwoJLHquK2S3x2F2\"\n    },\n    {\n        \"user_id\": \"f28bc4f5-3cc3-438e-9e8d-49f565c4a949\",\n        \"username\": \"Default User\",\n        \"email\": \"sa@customer.com\",\n        \"email_sent\": 0,\n        \"role\": \"user\",\n        \"password\": \"$2b$07$CFTxaqsPWSY8Pya1dt80kuBI9VnyouZqiXHvuLgCq49XBATFd43Ey\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "getUserById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODQ3ZWJjYjctMjI1Zi00YTRjLWI4ZmItYjNiZTdmN2NmNThjIiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1NTUwNSwiZXhwIjoxNjg0NzU5MTA1fQ.jdflHn5VFEtwJEegi6EB4T2G_hrQwijAsAsKY0leMO4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/users/getUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"getUser"
+							]
+						},
+						"description": "This endpoint reads the user id from a token passed and gets the user details from that token"
+					},
+					"response": [
+						{
+							"name": "getUserById",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODQ3ZWJjYjctMjI1Zi00YTRjLWI4ZmItYjNiZTdmN2NmNThjIiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1NTUwNSwiZXhwIjoxNjg0NzU5MTA1fQ.jdflHn5VFEtwJEegi6EB4T2G_hrQwijAsAsKY0leMO4",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/users/getUser",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users",
+										"getUser"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "214"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d6-Ch+yEmUCzWupsPEQ/ayYHuE33Gc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 11:46:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user_id\": \"847ebcb7-225f-4a4c-b8fb-b3be7f7cf58c\",\n    \"username\": \"Default User\",\n    \"email\": \"defaultuser@customer.com\",\n    \"email_sent\": 0,\n    \"role\": \"user\",\n    \"password\": \"$2b$07$hX5Pzmv6CmdJb0T3P/lt2eTTbLLd.WIDpxdjOBl3NpTJ4NfjJ14B2\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get User by email",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODQ3ZWJjYjctMjI1Zi00YTRjLWI4ZmItYjNiZTdmN2NmNThjIiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1NTUwNSwiZXhwIjoxNjg0NzU5MTA1fQ.jdflHn5VFEtwJEegi6EB4T2G_hrQwijAsAsKY0leMO4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/users/email",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"email"
+							]
+						},
+						"description": "Uses uniqueemail address to get the user details"
+					},
+					"response": [
+						{
+							"name": "get User by email",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODQ3ZWJjYjctMjI1Zi00YTRjLWI4ZmItYjNiZTdmN2NmNThjIiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1NTUwNSwiZXhwIjoxNjg0NzU5MTA1fQ.jdflHn5VFEtwJEegi6EB4T2G_hrQwijAsAsKY0leMO4",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/users/email",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users",
+										"email"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "216"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d8-8sFJDBPeNBaaMP7XTAY9QOEPXFo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 11:44:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"user_id\": \"847ebcb7-225f-4a4c-b8fb-b3be7f7cf58c\",\n        \"username\": \"Default User\",\n        \"email\": \"defaultuser@customer.com\",\n        \"email_sent\": 0,\n        \"role\": \"user\",\n        \"password\": \"$2b$07$hX5Pzmv6CmdJb0T3P/lt2eTTbLLd.WIDpxdjOBl3NpTJ4NfjJ14B2\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "update user details",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "header",
+									"value": "{\"token\"}",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "secret",
+									"value": "specksofbluepurpleindulged",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "payload",
+									"value": "{}",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODQ3ZWJjYjctMjI1Zi00YTRjLWI4ZmItYjNiZTdmN2NmNThjIiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1NjEzNSwiZXhwIjoxNjg0NzU5NzM1fQ.-fVGife-stpEU1M7_S9lMyTxBD_jUVUmLzuZUMOxo9g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Not Default User\",\r\n    \"email\":\"defaultuser@customer.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/users/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update user details",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODQ3ZWJjYjctMjI1Zi00YTRjLWI4ZmItYjNiZTdmN2NmNThjIiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1NjEzNSwiZXhwIjoxNjg0NzU5NzM1fQ.-fVGife-stpEU1M7_S9lMyTxBD_jUVUmLzuZUMOxo9g",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"Not Default User\",\r\n    \"email\":\"defaultuser@customer.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/users/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users",
+										"update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"27-dfFyQgR3GE+Pkj6o/3TrBgkhH1g\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 11:54:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User updated successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "User Deactivate",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODQ3ZWJjYjctMjI1Zi00YTRjLWI4ZmItYjNiZTdmN2NmNThjIiwidXNlcm5hbWUiOiJOb3QgRGVmYXVsdCBVc2VyIiwiZW1haWwiOiJkZWZhdWx0dXNlckBjdXN0b21lci5jb20iLCJpYXQiOjE2ODQ3NTY2MTYsImV4cCI6MTY4NDc2MDIxNn0._hWTMl-iTEzcP-K697ZDvsPBNF6XE4VOl54hED4KN88",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/users/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"delete"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User Deactivate",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODQ3ZWJjYjctMjI1Zi00YTRjLWI4ZmItYjNiZTdmN2NmNThjIiwidXNlcm5hbWUiOiJOb3QgRGVmYXVsdCBVc2VyIiwiZW1haWwiOiJkZWZhdWx0dXNlckBjdXN0b21lci5jb20iLCJpYXQiOjE2ODQ3NTY2MTYsImV4cCI6MTY4NDc2MDIxNn0._hWTMl-iTEzcP-K697ZDvsPBNF6XE4VOl54hED4KN88",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/users/delete",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users",
+										"delete"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"28-E0UotqMnQXHFIknExaQsKF+rwjs\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 11:57:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User deleted successfully!\"\n}"
+						}
+					]
+				}
+			],
+			"description": "_This folder handles how users interract with the system. It allows log ins, registration and deactivation of accounts in thee business database._"
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "get all products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZTczZjdmMjEtZGE5Zi00NWU5LTkwZGQtYjk4MjU0NjUwNTk0IiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1Njk3OCwiZXhwIjoxNjg0NzYwNTc4fQ.70CKzLagRC53d-mrv5NyzSNoFlkY6Ov_IJSEd8gzsG8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/products/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"products",
+								"getAll"
+							]
+						},
+						"description": "This endpoint allows a user to get a list of all the products in the database on log in"
+					},
+					"response": [
+						{
+							"name": "get all products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZTczZjdmMjEtZGE5Zi00NWU5LTkwZGQtYjk4MjU0NjUwNTk0IiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1Njk3OCwiZXhwIjoxNjg0NzYwNTc4fQ.70CKzLagRC53d-mrv5NyzSNoFlkY6Ov_IJSEd8gzsG8",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/products/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"getAll"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1554"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"612-H+DaRWloLMcGxSUD4kOw1cfxxto\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 12:04:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"product_id\": \"0a7258fa-c075-4307-8836-f5d2d8b4af2c\",\n        \"product_name\": \"Maserrati\",\n        \"descriptions\": \"MC 20\",\n        \"images\": \"http://Maserrati.com\",\n        \"product_price\": 26820000\n    },\n    {\n        \"product_id\": \"0c315c24-a8dc-4f56-9b41-ce22671619c5\",\n        \"product_name\": \"Lamborghini\",\n        \"descriptions\": \"Gallardo\",\n        \"images\": \"http://lamborgini.com\",\n        \"product_price\": 20000\n    },\n    {\n        \"product_id\": \"0e5d67e1-5639-4590-bd18-750430cf1a2a\",\n        \"product_name\": \"Koenigsegg\",\n        \"descriptions\": \"Agerra R\",\n        \"images\": \"http://laferrarri.com\",\n        \"product_price\": 600\n    },\n    {\n        \"product_id\": \"1\",\n        \"product_name\": \"BMW\",\n        \"descriptions\": \"SUV\",\n        \"images\": \"http://hegegyyef.com\",\n        \"product_price\": 9000\n    },\n    {\n        \"product_id\": \"25f25654-5f55-4fa4-855e-c9df91e5c265\",\n        \"product_name\": \"Nissan\",\n        \"descriptions\": \"Note\",\n        \"images\": \"http://Nissan/note.com\",\n        \"product_price\": 2000\n    },\n    {\n        \"product_id\": \"2c2b8627-9433-4b99-9864-446ad86432ff\",\n        \"product_name\": \"Rav 4\",\n        \"descriptions\": \"2 wheel\",\n        \"images\": \"http://toyota.com\",\n        \"product_price\": 8000\n    },\n    {\n        \"product_id\": \"7b043912-48d4-4b35-87c2-dabb1590c621\",\n        \"product_name\": \"Range Rover\",\n        \"descriptions\": \"sport\",\n        \"images\": \"http://Roverrangers.com\",\n        \"product_price\": 500000\n    },\n    {\n        \"product_id\": \"96e36f6a-7b5d-49f2-893e-85ea050a4ad9\",\n        \"product_name\": \"Range Rover\",\n        \"descriptions\": \"sport\",\n        \"images\": \"http://Roverrangers.com\",\n        \"product_price\": 500000\n    },\n    {\n        \"product_id\": \"d778a71c-e910-45ec-8765-d9663f917d2e\",\n        \"product_name\": \"Toyota\",\n        \"descriptions\": \"Belta\",\n        \"images\": \"http://toyota.com\",\n        \"product_price\": 92100\n    },\n    {\n        \"product_id\": \"e12f8789-4971-4e6c-b5b0-cbcf74fa53b6\",\n        \"product_name\": \"Range Rover x\",\n        \"descriptions\": \"sport\",\n        \"images\": \"http://Roverrangers.com\",\n        \"product_price\": 500000\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "get a product by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZTczZjdmMjEtZGE5Zi00NWU5LTkwZGQtYjk4MjU0NjUwNTk0IiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1Njk3OCwiZXhwIjoxNjg0NzYwNTc4fQ.70CKzLagRC53d-mrv5NyzSNoFlkY6Ov_IJSEd8gzsG8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/products/getProduct/7b043912-48d4-4b35-87c2-dabb1590c621",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"products",
+								"getProduct",
+								"7b043912-48d4-4b35-87c2-dabb1590c621"
+							]
+						},
+						"description": "This Endpoint takes in a product ID as a parameter and returns te product detailed to a logged in user"
+					},
+					"response": [
+						{
+							"name": "get a product by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZTczZjdmMjEtZGE5Zi00NWU5LTkwZGQtYjk4MjU0NjUwNTk0IiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1Njk3OCwiZXhwIjoxNjg0NzYwNTc4fQ.70CKzLagRC53d-mrv5NyzSNoFlkY6Ov_IJSEd8gzsG8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/products/getProduct/7b043912-48d4-4b35-87c2-dabb1590c621",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"getProduct",
+										"7b043912-48d4-4b35-87c2-dabb1590c621"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "165"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a5-mHv9dY9pjNfFp4Wbyl0ec8kw4iw\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 12:08:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"product_id\": \"7b043912-48d4-4b35-87c2-dabb1590c621\",\n        \"product_name\": \"Range Rover\",\n        \"descriptions\": \"sport\",\n        \"images\": \"http://Roverrangers.com\",\n        \"product_price\": 500000\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Add a product to the database",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1NzY0OSwiZXhwIjoxNjg0NzYxMjQ5fQ.7S_ha2Stxg52Y_9DZSk54iv8HM_joVC1HXEB7Z6_VQI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product_name\": \"Isuzu\",\r\n    \"descriptions\": \"D Max double cabin\",\r\n    \"images\": \"http://isuzu.com\",\r\n    \"product_price\": 20000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/products/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"products",
+								"add"
+							]
+						},
+						"description": "This endpoint allows only a verified admin to add a product to the database."
+					},
+					"response": [
+						{
+							"name": "Not an admin trying to add to the database",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZTczZjdmMjEtZGE5Zi00NWU5LTkwZGQtYjk4MjU0NjUwNTk0IiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1Njk3OCwiZXhwIjoxNjg0NzYwNTc4fQ.70CKzLagRC53d-mrv5NyzSNoFlkY6Ov_IJSEd8gzsG8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product_name\": \"Isuzu\",\r\n    \"descriptions\": \"D Max double cabin\",\r\n    \"images\": \"http://isuzu.com\",\r\n    \"product_price\": 20000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/products/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"add"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "34"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"22-Ox5IDWdSx1m6mmF3aiwRjkMlJ+0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 12:12:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User is not an Admin\"\n}"
+						},
+						{
+							"name": "Authorized Admin adding new product to the database to the database",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1NzY0OSwiZXhwIjoxNjg0NzYxMjQ5fQ.7S_ha2Stxg52Y_9DZSk54iv8HM_joVC1HXEB7Z6_VQI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product_name\": \"Isuzu\",\r\n    \"descriptions\": \"D Max double cabin\",\r\n    \"images\": \"http://isuzu.com\",\r\n    \"product_price\": 20000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/products/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"add"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"29-OZ3P7rl8Bxz3VMY3Pjyl+UTav/s\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 12:14:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Product added successfully!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1NzY0OSwiZXhwIjoxNjg0NzYxMjQ5fQ.7S_ha2Stxg52Y_9DZSk54iv8HM_joVC1HXEB7Z6_VQI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"product_name\": \"Range Rover\",\r\n        \"descriptions\": \"evoque\",\r\n        \"images\": \"http://Roverrangers.com\",\r\n        \"product_price\": 700000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/products/update/7b043912-48d4-4b35-87c2-dabb1590c621",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"products",
+								"update",
+								"7b043912-48d4-4b35-87c2-dabb1590c621"
+							]
+						},
+						"description": "This endpoint allows an authorized Admin to update a product"
+					},
+					"response": [
+						{
+							"name": "Not an admin trying to Update Product",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMmIwZTI4ZmUtZjQzYy00NmFmLTkwOWUtYjE4YmVjZDE1OWVhIiwidXNlcm5hbWUiOiJGcmVzaGx5IE13YW1idXJpIiwiZW1haWwiOiJzdGVsbGFpc2dvbmVAY3VzdG9tZXIuY29tIiwiaWF0IjoxNjg0NzIyOTcxLCJleHAiOjE2ODUwODI5NzF9.5ZTQM0XL7bN79tEW6Df6ZHrkN9RvKEkPVXM6gNNGC9s",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"product_name\": \"Range Rover\",\r\n        \"descriptions\": \"evoque\",\r\n        \"images\": \"http://Roverrangers.com\",\r\n        \"product_price\": 700000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/products/update/7b043912-48d4-4b35-87c2-dabb1590c621",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"update",
+										"7b043912-48d4-4b35-87c2-dabb1590c621"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "34"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"22-Ox5IDWdSx1m6mmF3aiwRjkMlJ+0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 12:26:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User is not an Admin\"\n}"
+						},
+						{
+							"name": "Update Product by Admin",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1NzY0OSwiZXhwIjoxNjg0NzYxMjQ5fQ.7S_ha2Stxg52Y_9DZSk54iv8HM_joVC1HXEB7Z6_VQI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"product_name\": \"Range Rover\",\r\n        \"descriptions\": \"evoque\",\r\n        \"images\": \"http://Roverrangers.com\",\r\n        \"product_price\": 700000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/products/update/7b043912-48d4-4b35-87c2-dabb1590c621",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"update",
+										"7b043912-48d4-4b35-87c2-dabb1590c621"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "42"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2a-xkx5KN1R/KioLOUe4KCUrVOtulk\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 12:24:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Product updated successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Remove product ",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMmIwZTI4ZmUtZjQzYy00NmFmLTkwOWUtYjE4YmVjZDE1OWVhIiwidXNlcm5hbWUiOiJGcmVzaGx5IE13YW1idXJpIiwiZW1haWwiOiJzdGVsbGFpc2dvbmVAY3VzdG9tZXIuY29tIiwiaWF0IjoxNjg0NzIyOTcxLCJleHAiOjE2ODUwODI5NzF9.5ZTQM0XL7bN79tEW6Df6ZHrkN9RvKEkPVXM6gNNGC9s",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/products/delete/7b043912-48d4-4b35-87c2-dabb1590c621",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"products",
+								"delete",
+								"7b043912-48d4-4b35-87c2-dabb1590c621"
+							]
+						},
+						"description": "This endpoint allows an admin to delete a product from the database"
+					},
+					"response": [
+						{
+							"name": "Not an admin trying to remove a product from the database",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1NzY0OSwiZXhwIjoxNjg0NzYxMjQ5fQ.7S_ha2Stxg52Y_9DZSk54iv8HM_joVC1HXEB7Z6_VQI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/products/delete/7b043912-48d4-4b35-87c2-dabb1590c621",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"delete",
+										"7b043912-48d4-4b35-87c2-dabb1590c621"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "34"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"22-Ox5IDWdSx1m6mmF3aiwRjkMlJ+0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 12:28:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User is not an Admin\"\n}"
+						},
+						{
+							"name": "Admin Removing a product",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1NzY0OSwiZXhwIjoxNjg0NzYxMjQ5fQ.7S_ha2Stxg52Y_9DZSk54iv8HM_joVC1HXEB7Z6_VQI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/products/delete/7b043912-48d4-4b35-87c2-dabb1590c621",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"delete",
+										"7b043912-48d4-4b35-87c2-dabb1590c621"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-6Qi8S8h6YPD2q8ZKjBfrTGi/dig\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 12:30:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Product deleted successfully!\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Add to cart",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1ODgzMCwiZXhwIjoxNjg0NzYyNDMwfQ.P-66Z3vaZvobuyQ51LQ4oTfrSYRzJN4R3Y2KMXF2qFE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/cart/getUserCart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"cart",
+								"getUserCart"
+							]
+						},
+						"description": "This allows a logged in user to add an item to their cart by using a product id"
+					},
+					"response": [
+						{
+							"name": "Add to cart",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1ODgzMCwiZXhwIjoxNjg0NzYyNDMwfQ.P-66Z3vaZvobuyQ51LQ4oTfrSYRzJN4R3Y2KMXF2qFE",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product_id\":\"0a7258fa-c075-4307-8836-f5d2d8b4af2c\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/cart/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"cart",
+										"add"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "53"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"35-NFLR3fvqqA7/gkwaZCOMsnAexMs\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 12:34:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Product added to the cart successfully.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get User Cart",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1ODgzMCwiZXhwIjoxNjg0NzYyNDMwfQ.P-66Z3vaZvobuyQ51LQ4oTfrSYRzJN4R3Y2KMXF2qFE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/cart/getUserCart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"cart",
+								"getUserCart"
+							]
+						},
+						"description": "This endpoint allows a user to get all the items of a user in the cart"
+					},
+					"response": [
+						{
+							"name": "Get User Cart",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1ODgzMCwiZXhwIjoxNjg0NzYyNDMwfQ.P-66Z3vaZvobuyQ51LQ4oTfrSYRzJN4R3Y2KMXF2qFE",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/cart/getUserCart",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"cart",
+										"getUserCart"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "268"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10c-sGkfwKKSDHlcNCixY2D09lliMgQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 12:38:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"item_id\": \"4e8d4190-c006-4ec8-83d7-8afe0db2f355\",\n        \"cart_id\": \"15bbe9a4-7484-4b2a-9e68-043f7da5a35f\",\n        \"user_id\": \"15bbe9a4-7484-4b2a-9e68-043f7da5a35f\",\n        \"product_id\": \"0a7258fa-c075-4307-8836-f5d2d8b4af2c\",\n        \"product_count\": 1,\n        \"product_price\": 26820000,\n        \"total_price\": 26820000\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Increase item quantity in cart",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1ODgzMCwiZXhwIjoxNjg0NzYyNDMwfQ.P-66Z3vaZvobuyQ51LQ4oTfrSYRzJN4R3Y2KMXF2qFE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product_id\":\"0a7258fa-c075-4307-8836-f5d2d8b4af2c\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/cart/increase",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"cart",
+								"increase"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Increase item quantity in cart",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1ODgzMCwiZXhwIjoxNjg0NzYyNDMwfQ.P-66Z3vaZvobuyQ51LQ4oTfrSYRzJN4R3Y2KMXF2qFE",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product_id\":\"0a7258fa-c075-4307-8836-f5d2d8b4af2c\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/cart/increase",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"cart",
+										"increase"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "268"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10c-8ucBloZZsPm/Ig61tT9aWG9He30\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 12:54:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"item_id\": \"4e8d4190-c006-4ec8-83d7-8afe0db2f355\",\n        \"cart_id\": \"15bbe9a4-7484-4b2a-9e68-043f7da5a35f\",\n        \"user_id\": \"15bbe9a4-7484-4b2a-9e68-043f7da5a35f\",\n        \"product_id\": \"0a7258fa-c075-4307-8836-f5d2d8b4af2c\",\n        \"product_count\": 2,\n        \"product_price\": 26820000,\n        \"total_price\": 53640000\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "reduce item count in the cart",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1ODgzMCwiZXhwIjoxNjg0NzYyNDMwfQ.P-66Z3vaZvobuyQ51LQ4oTfrSYRzJN4R3Y2KMXF2qFE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product_id\":\"0a7258fa-c075-4307-8836-f5d2d8b4af2c\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/cart/reduce",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"cart",
+								"reduce"
+							]
+						},
+						"description": "This endpoint allows a user to reduce the quantity of a product in the cart if it already exists."
+					},
+					"response": [
+						{
+							"name": "reduce item count in the cart",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1ODgzMCwiZXhwIjoxNjg0NzYyNDMwfQ.P-66Z3vaZvobuyQ51LQ4oTfrSYRzJN4R3Y2KMXF2qFE",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product_id\":\"0a7258fa-c075-4307-8836-f5d2d8b4af2c\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/cart/reduce",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"cart",
+										"reduce"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "268"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10c-8ucBloZZsPm/Ig61tT9aWG9He30\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 12:41:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"item_id\": \"4e8d4190-c006-4ec8-83d7-8afe0db2f355\",\n        \"cart_id\": \"15bbe9a4-7484-4b2a-9e68-043f7da5a35f\",\n        \"user_id\": \"15bbe9a4-7484-4b2a-9e68-043f7da5a35f\",\n        \"product_id\": \"0a7258fa-c075-4307-8836-f5d2d8b4af2c\",\n        \"product_count\": 2,\n        \"product_price\": 26820000,\n        \"total_price\": 53640000\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "remove item from cart",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1ODgzMCwiZXhwIjoxNjg0NzYyNDMwfQ.P-66Z3vaZvobuyQ51LQ4oTfrSYRzJN4R3Y2KMXF2qFE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product_id\":\"0a7258fa-c075-4307-8836-f5d2d8b4af2c\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/cart/remove",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"cart",
+								"remove"
+							]
+						},
+						"description": "This allows a user to remove an item from the cart regardless of the quantity "
+					},
+					"response": [
+						{
+							"name": "remove item from cart",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1ODgzMCwiZXhwIjoxNjg0NzYyNDMwfQ.P-66Z3vaZvobuyQ51LQ4oTfrSYRzJN4R3Y2KMXF2qFE",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product_id\":\"0a7258fa-c075-4307-8836-f5d2d8b4af2c\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/cart/remove",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"cart",
+										"remove"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"29-NFgMW1g4adRnMtvZJlT0/kIJnGQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 12:57:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Item removed from the cart!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "clear the cart of a user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1ODgzMCwiZXhwIjoxNjg0NzYyNDMwfQ.P-66Z3vaZvobuyQ51LQ4oTfrSYRzJN4R3Y2KMXF2qFE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/cart/clear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"cart",
+								"clear"
+							]
+						},
+						"description": "This endpoint allows a user to clear the cart of a user. Removes all items"
+					},
+					"response": [
+						{
+							"name": "clear the cart of a user",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTViYmU5YTQtNzQ4NC00YjJhLTllNjgtMDQzZjdkYTVhMzVmIiwidXNlcm5hbWUiOiJaYXluIE1hbGljayIsImVtYWlsIjoiemF5bnN1cGVyQGN1c3RvbWVyLmNvbSIsImlhdCI6MTY4NDc1ODgzMCwiZXhwIjoxNjg0NzYyNDMwfQ.P-66Z3vaZvobuyQ51LQ4oTfrSYRzJN4R3Y2KMXF2qFE",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/cart/clear",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"cart",
+										"clear"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"28-bfONNAyg3yoZ3X4cmDxmfqGKMmA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 13:00:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Cart cleared successfully!\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Admin getting all the orders on the system",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMGRjYjJkYjYtMTM1NS00OGVhLWE2NDItY2JmOWRiNDhkN2RjIiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyMUBjdXN0b21lci5jb20iLCJpYXQiOjE2ODQ3NjI4NzUsImV4cCI6MTY4NDc2NjQ3NX0.B2Lo9szGT1N3I2LVbr95Z3uN0udfyVVwBJrzSO8Ezgk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/orders/allOrders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"orders",
+								"allOrders"
+							]
+						},
+						"description": "This endpoint allows an authorixed Admin to get all the orders in the system."
+					},
+					"response": [
+						{
+							"name": "Admin getting all the orders on the system",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMGRjYjJkYjYtMTM1NS00OGVhLWE2NDItY2JmOWRiNDhkN2RjIiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyMUBjdXN0b21lci5jb20iLCJpYXQiOjE2ODQ3NjI4NzUsImV4cCI6MTY4NDc2NjQ3NX0.B2Lo9szGT1N3I2LVbr95Z3uN0udfyVVwBJrzSO8Ezgk",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/orders/allOrders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"orders",
+										"allOrders"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "836"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"344-3Xu7FJ3OtXWCyZrHx3J1NtrpGJA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 13:44:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"order_id\": 1,\n        \"cart_id\": \"15bbe9a4-7484-4b2a-9e68-043f7da5a35f\",\n        \"user_id\": \"15bbe9a4-7484-4b2a-9e68-043f7da5a35f\",\n        \"order_status\": \"pending\"\n    },\n    {\n        \"order_id\": 2,\n        \"cart_id\": \"15bbe9a4-7484-4b2a-9e68-043f7da5a35f\",\n        \"user_id\": \"15bbe9a4-7484-4b2a-9e68-043f7da5a35f\",\n        \"order_status\": \"Complete\"\n    },\n    {\n        \"order_id\": 3,\n        \"cart_id\": \"15bbe9a4-7484-4b2a-9e68-043f7da5a35f\",\n        \"user_id\": \"15bbe9a4-7484-4b2a-9e68-043f7da5a35f\",\n        \"order_status\": \"Cancelled\"\n    },\n    {\n        \"order_id\": 4,\n        \"cart_id\": \"15bbe9a4-7484-4b2a-9e68-043f7da5a35f\",\n        \"user_id\": \"15bbe9a4-7484-4b2a-9e68-043f7da5a35f\",\n        \"order_status\": \"Complete\"\n    },\n    {\n        \"order_id\": 5,\n        \"cart_id\": \"2b0e28fe-f43c-46af-909e-b18becd159ea\",\n        \"user_id\": \"2b0e28fe-f43c-46af-909e-b18becd159ea\",\n        \"order_status\": \"Complete\"\n    },\n    {\n        \"order_id\": 6,\n        \"cart_id\": \"2b0e28fe-f43c-46af-909e-b18becd159ea\",\n        \"user_id\": \"2b0e28fe-f43c-46af-909e-b18becd159ea\",\n        \"order_status\": \"Cancelled\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Creating an order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMGRjYjJkYjYtMTM1NS00OGVhLWE2NDItY2JmOWRiNDhkN2RjIiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyMUBjdXN0b21lci5jb20iLCJpYXQiOjE2ODQ3NjI4NzUsImV4cCI6MTY4NDc2NjQ3NX0.B2Lo9szGT1N3I2LVbr95Z3uN0udfyVVwBJrzSO8Ezgk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/orders/newOrder",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"orders",
+								"newOrder"
+							]
+						},
+						"description": "This endpoint fetches all the items in the cart at a particular point and makes an order with all the items in the cart."
+					},
+					"response": [
+						{
+							"name": "Creating an order",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMGRjYjJkYjYtMTM1NS00OGVhLWE2NDItY2JmOWRiNDhkN2RjIiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyMUBjdXN0b21lci5jb20iLCJpYXQiOjE2ODQ3NjI4NzUsImV4cCI6MTY4NDc2NjQ3NX0.B2Lo9szGT1N3I2LVbr95Z3uN0udfyVVwBJrzSO8Ezgk",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/orders/newOrder",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"orders",
+										"newOrder"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-JkDdy5j8SAHrkjusd3hSf21nyPk\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 13:48:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Your order has been received!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get User orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMGRjYjJkYjYtMTM1NS00OGVhLWE2NDItY2JmOWRiNDhkN2RjIiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyMUBjdXN0b21lci5jb20iLCJpYXQiOjE2ODQ3NjI4NzUsImV4cCI6MTY4NDc2NjQ3NX0.B2Lo9szGT1N3I2LVbr95Z3uN0udfyVVwBJrzSO8Ezgk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/orders/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"orders",
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User orders",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMGRjYjJkYjYtMTM1NS00OGVhLWE2NDItY2JmOWRiNDhkN2RjIiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyMUBjdXN0b21lci5jb20iLCJpYXQiOjE2ODQ3NjI4NzUsImV4cCI6MTY4NDc2NjQ3NX0.B2Lo9szGT1N3I2LVbr95Z3uN0udfyVVwBJrzSO8Ezgk",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/orders/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"orders",
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "142"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8e-HlNM6KTaGVvzrQ9SZCgmzPPit1k\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 13:50:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"order_id\": 1002,\n        \"cart_id\": \"0dcb2db6-1355-48ea-a642-cbf9db48d7dc\",\n        \"user_id\": \"0dcb2db6-1355-48ea-a642-cbf9db48d7dc\",\n        \"order_status\": \"pending\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Admin marking an order as complete",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMGRjYjJkYjYtMTM1NS00OGVhLWE2NDItY2JmOWRiNDhkN2RjIiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyMUBjdXN0b21lci5jb20iLCJpYXQiOjE2ODQ3NjI4NzUsImV4cCI6MTY4NDc2NjQ3NX0.B2Lo9szGT1N3I2LVbr95Z3uN0udfyVVwBJrzSO8Ezgk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"order_id\":1002\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/orders/complete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"orders",
+								"complete"
+							]
+						},
+						"description": "This endpoint allows an authorized admin to mark the order status as completed on delivery"
+					},
+					"response": [
+						{
+							"name": "Admin marking an order as complete",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMGRjYjJkYjYtMTM1NS00OGVhLWE2NDItY2JmOWRiNDhkN2RjIiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyMUBjdXN0b21lci5jb20iLCJpYXQiOjE2ODQ3NjI4NzUsImV4cCI6MTY4NDc2NjQ3NX0.B2Lo9szGT1N3I2LVbr95Z3uN0udfyVVwBJrzSO8Ezgk",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"order_id\":1002\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/orders/complete",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"orders",
+										"complete"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e-Iinfyh9iAK4I9dMPiS2/m+miA+U\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 13:53:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Order Completed!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Cancel order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMGRjYjJkYjYtMTM1NS00OGVhLWE2NDItY2JmOWRiNDhkN2RjIiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyMUBjdXN0b21lci5jb20iLCJpYXQiOjE2ODQ3NjI4NzUsImV4cCI6MTY4NDc2NjQ3NX0.B2Lo9szGT1N3I2LVbr95Z3uN0udfyVVwBJrzSO8Ezgk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"order_id\": 1003\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/orders/cancel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"orders",
+								"cancel"
+							]
+						},
+						"description": "This endpoint allows a user to cancel an order that they made"
+					},
+					"response": [
+						{
+							"name": "Cancel order",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMGRjYjJkYjYtMTM1NS00OGVhLWE2NDItY2JmOWRiNDhkN2RjIiwidXNlcm5hbWUiOiJEZWZhdWx0IFVzZXIiLCJlbWFpbCI6ImRlZmF1bHR1c2VyMUBjdXN0b21lci5jb20iLCJpYXQiOjE2ODQ3NjI4NzUsImV4cCI6MTY4NDc2NjQ3NX0.B2Lo9szGT1N3I2LVbr95Z3uN0udfyVVwBJrzSO8Ezgk",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"order_id\": 1003\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/orders/cancel",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"orders",
+										"cancel"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e-YtlcbrraGJVZRpfaBq5LMDP/0Q0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 13:56:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Order cancelled!\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

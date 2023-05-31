@@ -17,7 +17,7 @@ export const verifyAdmin =(req:ExtendedRequest, res:Response, next:NextFunction)
         const adminData = jwt.verify(admtoken, process.env.SECRET_KEY as string) as DecodedData
         req.data=adminData
 
-        if(adminData.email !== 'zaynsuper@customer.com'){
+        if(adminData.role !== 'admin'){
             return res.status(401).json({message:'User is not an Admin'})
         }
 

@@ -4,7 +4,8 @@ CREATE OR ALTER PROCEDURE insertProduct(
      @product_id VARCHAR (100),
      @product_name VARCHAR(100),
      @descriptions VARCHAR(1000),
-	 @images VARCHAR(1000),
+     @category VARCHAR(100),
+     @images VARCHAR(1000),
      @product_price DECIMAL(10, 2)
 )
 AS
@@ -13,14 +14,16 @@ INSERT INTO PRODUCTS(
      product_id,
      product_name,
      descriptions,
-	 images,
+     category,
+     images,
      product_price
 )
 VALUES(
-    @product_id,
+     @product_id,
      @product_name,
      @descriptions,
-	 @images,
+     @category,
+     @images,
      @product_price
 )
 END

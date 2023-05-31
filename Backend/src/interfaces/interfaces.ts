@@ -7,7 +7,7 @@ export interface ExtendedRequest extends Request{
         product_id?:string
         username:string
         email:string
-        email_sent:string
+        email_sent:number
         role:string
         password:string
         data?:DecodedData
@@ -81,6 +81,7 @@ export interface DecodedData{
     user_id: string;
     username: string;
     email: string;
+    role:string
 }
 
 export interface ProductRequest extends Request{
@@ -88,6 +89,7 @@ export interface ProductRequest extends Request{
     body:{
         product_name:string
         descriptions:string
+        category:string
         images:string
         product_price:number
         data?:DecodedData

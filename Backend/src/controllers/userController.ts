@@ -15,22 +15,29 @@ import { userValidatorSchema } from "../helpers/userValidation";
 export const addUser=async (req:ExtendedRequest, res:Response)=>{
     try {
         let user_id=uid()
-        const{username,email,email_sent='0',role='user',password}=req.body
+        let email_sent= 0
+        let role = 'user'
+        const{username,email,password}=req.body
         const {error}= userValidatorSchema.validate(req.body)
-        if(error)(
-            res.status(404).json(error.details[0].message)
-        )
-        let hPassword =await bcrypt.hash(password,7)
-        const pool=await mssql.connect(sqlConfig)
-        await pool.request()
-        .input('user_id',user_id)
-        .input('username',username)
+        const pool = await mssql.connect(sqlConfig)
+        let user:User[] = (await (await pool.request())
         .input('email',email)
-        .input('email_sent',email_sent)
-        .input('role',role)
-        .input('password',hPassword)
-        .execute('insertUser')
-        return res.status(201).json({message:"User added successfully!"})
+        .execute('getUserByEmail')).recordset
+        if(user.length){
+            return res.status(409).json({message:"User already exists!"})
+        }else{
+            let hPassword =await bcrypt.hash(password,7)
+            const pool=await mssql.connect(sqlConfig)
+            await pool.request()
+            .input('user_id',user_id)
+            .input('username',username)
+            .input('email',email)
+            .input('email_sent',email_sent)
+            .input('role',role)
+            .input('password',hPassword)
+            .execute('insertUser')
+            return res.status(201).json({message:"User added successfully!"})
+        }
     } catch (error:any) {
         return res.status(500).json(error.message)
     }
@@ -94,7 +101,7 @@ export const updateUser=async(req:ExtendedRequest,res:Response)=>{
             return res.status(404).json({message:"User not found!"})
         }
         await pool.request()
-        // .input('user_id',user_id)
+        .input('user_id',user_id)
         .input('username',username)
         .input('email',email)
         .execute('updateUser')
@@ -142,11 +149,10 @@ export const userLogin= async (req:ExtendedRequest, res:Response)=>{
         }
 
         const payload= user.map(usr=>{
-            const {password, email_sent,role,...rest}=usr
+            const {password, email_sent,...rest}=usr
             return rest
         })
         const token = jwt.sign(payload[0], process.env.SECRET_KEY as string,{expiresIn:"3600s"})
-        // res.status(200).json(token)
         return res.json({mesage:"Login Successfull!",token})
     } catch (error:any) {
             return res.status(500).json(error.message)
